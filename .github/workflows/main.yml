@@ -1,0 +1,15 @@
+on: [push]
+
+jobs:
+  job:
+    runs-on: ubuntu-latest
+    name: testing
+    steps:
+    - name: first step
+      id: first
+      uses: ./
+      with:
+        repo-token: ${{ secrets.GITHUB_TOKEN }}
+
+    - name: Get the output time
+      run: echo "comment-url is ${{ steps.first.outputs.comment-url }}"
