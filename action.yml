@@ -1,13 +1,16 @@
-name: 'Hello World'
+name: 'Jest Code Coverage PR Comment'
 description: 'create a PR comment of jest code coverage diff'
 inputs:
-  who-to-greet:  # id of input
-    description: 'Who to greet'
+  repo-token:
+    description: 'GITHUB_TOKEN secret'
     required: true
-    default: 'World'
+  coverage-summary-path:
+    description: 'optional coverage-summary.json path from jest'
+  artifact-name:
+    description: 'optional artifact name'
 outputs:
-  time: # id of output
-    description: 'The time we greeted you'
+  comment-url:
+    description: 'The PR comment URL'
 runs:
   using: 'node12'
   main: 'index.js'
