@@ -62,8 +62,9 @@ async function commentOnPR(message) {
 function getBadge(previousCoveragePct, currentCoveragePct) {
   const diff = currentCoveragePct - previousCoveragePct
   const color = diff > 0 ? 'green' : 'red'
+  core.info(`payload ${JSON.stringify(github.context.payload)}`)
   const baseBranchName = github.context.payload.base_ref
-  const label = `${currentCoveragePct} (${diff}%) vs ${baseBranchName} ${previousCoveragePct}%`
+  const label = `${currentCoveragePct} (${diff}%25)%20vs%20${baseBranchName}%20${previousCoveragePct}%25`
   return `<img src="https://img.shields.io/badge/coverage-${label}-${color}" />`
 }
 
